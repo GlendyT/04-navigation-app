@@ -6,9 +6,9 @@ import {Tab1Screen} from '../screens/tab/Tab1Screen';
 //import {Tab2Screen} from '../screens/tab/Tab2Screen';
 //import {Tab3Screen} from '../screens/tab/Tab3Screen';
 import {globalColors} from '../theme/theme';
-import {Text} from 'react-native';
-import { TopTabNavigator } from './TopTabNavigator';
-import { StackNavigator } from './StackNavigator';
+import {TopTabNavigator} from './TopTabNavigator';
+import {StackNavigator} from './StackNavigator';
+import {IonIcon} from '../components/shared/IonIcon';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,6 +19,7 @@ export const BottomTabNavigator = () => {
         backgroundColor: globalColors.background,
       }}
       screenOptions={{
+        tabBarActiveTintColor: globalColors.primary,
         //headerShown: false,
         tabBarLabelStyle: {
           marginBottom: 5,
@@ -37,7 +38,9 @@ export const BottomTabNavigator = () => {
         name="Tab1"
         options={{
           title: 'Tab1',
-          tabBarIcon: ({color}) => (<Text style={{color}}>Tab1</Text>),
+          tabBarIcon: ({color}) => (
+            <IonIcon name="bookmark-outline" color={color} />
+          ),
         }}
         component={Tab1Screen}
       />
@@ -45,7 +48,9 @@ export const BottomTabNavigator = () => {
         name="Tab2"
         options={{
           title: 'Tab2',
-          tabBarIcon: ({color}) => (<Text style={{color}}>Tab2</Text>),
+          tabBarIcon: ({color}) => (
+            <IonIcon name="brush-outline" color={color} />
+          ),
         }}
         component={TopTabNavigator}
       />
@@ -53,7 +58,9 @@ export const BottomTabNavigator = () => {
         name="Tab3"
         options={{
           title: 'Tab3',
-          tabBarIcon: ({color}) => (<Text style={{color}}>Tab3</Text>),
+          tabBarIcon: ({color}) => (
+            <IonIcon name="build-outline" color={color} />
+          ),
         }}
         component={StackNavigator}
       />
